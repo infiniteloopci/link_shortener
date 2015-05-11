@@ -1,7 +1,19 @@
 <div class="row">
   <div class="col-md-offset-5 col-md-3">
     <div id="content">
-        Hello world!
+      <h4>Skróć link!</h4>
+      <%= form_for @link do |form| %>
+          <%= form.text_field :url,
+                  placeholder: 'podaj adres który chcesz skrócić',
+                  class: 'form-control input-sm chat-input'
+          %>
+          <br/>
+          <div class="wrapper">
+            <span class="group-btn">
+              <%= submit_tag 'skróć', class: 'btn btn-primary btn-md' %>
+            </span>
+          </div>
+      <% end %>
     </div>
   </div>
 </div>
