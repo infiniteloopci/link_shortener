@@ -11,13 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20150511185745) do
+=======
 ActiveRecord::Schema.define(version: 20150511183305) do
+>>>>>>> 1_basic
 
   create_table "links", force: :cascade do |t|
     t.string   "token"
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "view_count"
   end
 
 end

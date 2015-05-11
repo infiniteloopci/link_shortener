@@ -6,6 +6,8 @@
         <dd><%= link_to @link.url, @link.url %></dd>
         <dt>Skrócony link:</dt>
         <dd id="result-link"><%= link_to forward_link_url(@link.token), forward_link_url(@link.token) %></dd>
+        <dt>Liczba wejść na link:</dt>
+        <dd id="view-count"><%= @link.view_count %></dd>
       </dl>
     </div>
   </div>

@@ -20,7 +20,7 @@ class LinksController < ApplicationController
   end
 
   def forward
-    @link = Link::find_by(token: params[:token])
+    @link = Link::Fetcher.process_token(params[:token])
     redirect_to @link.url
   end
 
