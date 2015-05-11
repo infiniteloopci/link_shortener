@@ -1,0 +1,19 @@
+language: ruby
+rvm:
+- 2.2.0
+script:
+- RAILS_ENV=test bundle exec rake db:migrate
+- bundle exec rake db:test:prepare
+- bundle exec rspec
+before_install:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+deploy:
+  provider: heroku
+  api_key:
+    secure: jNMSfSTB/H2d3NHFp3KxUT2TNmlNp3Qvv+Q1nEkIV2QcqllVGLmNR0JyeSR3T7IKmTUFi5FI0IQnDBnmDLZFiX7MH1E1OvZRqh0C6yKd+7/5wW4+1ko8vdZZJ65AWKuPnuS7rbxG/RSRxN+5XJ7G9clxSzdY85+oacVOBQKV8chlq7QYf+5m0hsDm8Wg4LffusbOGMlo4VBgZsG70LecDumqRhcqzTPqTknZI32KpNcKeY02N8xUwMGhY0LPpF5uYn/+OiWQF1gEou++ko0ZCl7b1kwS89oTkq0g1uTVnDS3rx+0tHOdDkHSlsIFz3mewwUB8na3qLbBSaIMdh+hd6lk8PiyCyFMBeTK4IEDerqqV+RsfqpTBnL7GFPaN/QuqMQSlHlsAmSt5UfjwKkJ4aP9+yoWGhcoo12/uA5/hsQOwP9rpcLEDLSEb2GHXn8BT3b8YjIvRIuvSLsaC+0txa3mg6PmAjvDJ8rOZ6Y5UhTyLXG0Hbh5KraYsg+b2hKAm1sPEypCEgj0T8E//l2FGb3eS4oVs3vKXn/McI9XCOVp86nZ8UJ2STsW24BUoaye2kkniG+04xoIJenOWgPmSIeaSZFLIoWLA+1GrnNmqDDRJYM3Bg64CLz7vj1wqAoFO/a9VYLSow0DgPd17dUaKZuyIN8FsjajPwHNTwFUmkw=
+  app: illinkshortener
+  on:
+    repo: infiniteloopci/link_shortener
+  run: rake db:migrate
+

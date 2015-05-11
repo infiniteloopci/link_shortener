@@ -1,0 +1,9 @@
+pl:
+  activerecord:
+    errors:
+      models:
+        link:
+          attributes:
+            url:
+              blank: "Proszę podać adres"
+              invalid: "Podany adres jest nieprawidłowy"
